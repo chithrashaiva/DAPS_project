@@ -25,7 +25,7 @@
     <div class="goals-grid" id="goals-grid">
         {% for goal in goals %}
         <a href="{% url 'goal_detail' goal.id %}" class="goal-card glass-card animate-fade-in"
-            id="goal-card-{{ goal.id }}" style="animation-delay: {{ forloop.counter0 }}50ms;">
+            id="goal-card-{{ goal.id }}" data-delay="{{ forloop.counter0 }}" style="animation-delay: {{ forloop.counter0 | stringformat:'d' }}ms;">
             <div class="goal-card-header">
                 <span class="status-badge status-{{ goal.status }}">{{ goal.get_status_display }}</span>
                 <span class="goal-phase-tag">{{ goal.get_phase_display }}</span>
@@ -49,4 +49,5 @@
         {% endfor %}
     </div>
 </div>
+
 {% endblock %}

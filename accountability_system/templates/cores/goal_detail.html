@@ -96,7 +96,7 @@
 
             <div class="progress-timeline">
                 {% for log in progress_logs %}
-                <div class="timeline-item animate-fade-in" style="animation-delay: {{ forloop.counter0 }}00ms;">
+                <div class="timeline-item animate-fade-in" data-delay="{{ forloop.counter0 }}" style="--delay: {{ forloop.counter0 }}s;">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <p>{{ log.note }}</p>

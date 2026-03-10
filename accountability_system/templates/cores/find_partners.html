@@ -24,7 +24,7 @@
         <div class="users-grid">
             {% for user_result in results %}
             <div class="user-card glass-card animate-fade-in" id="user-{{ user_result.id }}"
-                style="animation-delay: {{ forloop.counter0 }}50ms;">
+                data-delay="{{ forloop.counter0|add:50 }}">
                 <div class="user-card-avatar">{{ user_result.username|first|upper }}</div>
                 <div class="user-card-info">
                     <span class="user-card-name">{{ user_result.username }}</span>
@@ -48,4 +48,17 @@
     </div>
     {% endif %}
 </div>
+
+<style>
+    .users-grid .user-card {
+        animation-delay: var(--animation-delay);
+    }
+</style>
+
+<script>
+    document.querySelectorAll('.user-card').forEach(card => {
+        const delay = card.getAttribute('data-delay');
+        card.style.setProperty('--animation-delay', delay + 'ms');
+    });
+</script>
 {% endblock %}
