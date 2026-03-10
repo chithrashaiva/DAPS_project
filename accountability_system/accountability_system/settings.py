@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'daps_project.wsgi.application'
+WSGI_APPLICATION = 'accountability_system.wsgi.application'
 
 
 # Database
